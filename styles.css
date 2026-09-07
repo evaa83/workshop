@@ -1600,8 +1600,8 @@ p {
 
 .proposal-page {
   background: var(--paper);
-  --serif: "Noto Serif SC", "Noto Serif TC", "Songti SC", "Songti TC", serif;
-  --sans: "Noto Sans SC", "Noto Sans TC", system-ui, sans-serif;
+  --serif: "Noto Serif TC", "Songti TC", serif;
+  --sans: "Noto Sans TC", system-ui, sans-serif;
 }
 
 .proposal-main {
