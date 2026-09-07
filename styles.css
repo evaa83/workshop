@@ -1886,6 +1886,22 @@ p {
   line-height: 2;
 }
 
+.contact-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.contact-methods span,
+.contact-methods a {
+  padding: 10px 15px;
+  border: 1px solid rgba(247, 243, 233, 0.24);
+  color: var(--cream);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(25px);
