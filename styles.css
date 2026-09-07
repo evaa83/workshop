@@ -1600,6 +1600,8 @@ p {
 
 .proposal-page {
   background: var(--paper);
+  --serif: "Noto Serif SC", "Noto Serif TC", "Songti SC", "Songti TC", serif;
+  --sans: "Noto Sans SC", "Noto Sans TC", system-ui, sans-serif;
 }
 
 .proposal-main {
@@ -1608,33 +1610,38 @@ p {
 
 .proposal-hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.8fr);
-  gap: clamp(42px, 7vw, 90px);
+  grid-template-columns: minmax(0, 0.98fr) minmax(280px, 0.62fr);
+  gap: clamp(34px, 5.6vw, 72px);
   align-items: center;
-  min-height: calc(100vh - 74px);
-  padding: clamp(72px, 10vw, 120px) clamp(24px, 6vw, 76px) clamp(46px, 7vw, 76px);
+  min-height: min(760px, calc(100vh - 74px));
+  padding: clamp(58px, 8vw, 92px) clamp(24px, 6vw, 76px) clamp(42px, 6vw, 66px);
   background: var(--cream);
 }
 
 .proposal-hero-copy h1 {
-  max-width: 780px;
-  margin: 18px 0 26px;
+  max-width: 680px;
+  margin: 16px 0 22px;
   font-family: var(--serif);
-  font-size: clamp(2.65rem, 6vw, 5.4rem);
-  line-height: 1.15;
-  letter-spacing: 0.05em;
+  font-size: clamp(2.2rem, 4.5vw, 4.25rem);
+  line-height: 1.22;
+  letter-spacing: 0.04em;
 }
 
 .proposal-hero-copy > p:not(.overline) {
-  max-width: 680px;
+  max-width: 620px;
   color: var(--muted);
-  font-size: clamp(1rem, 1.45vw, 1.15rem);
-  line-height: 2;
+  font-size: clamp(0.98rem, 1.22vw, 1.08rem);
+  line-height: 1.9;
 }
 
 .proposal-hero-image,
 .proposal-side-photo {
   margin: 0;
+}
+
+.proposal-hero-image {
+  justify-self: end;
+  width: min(100%, 430px);
 }
 
 .proposal-hero-image img,
@@ -1645,16 +1652,16 @@ p {
 }
 
 .proposal-hero-image img {
-  aspect-ratio: 4 / 3.35;
+  aspect-ratio: 4 / 3.05;
   object-position: 70% center;
 }
 
 .proposal-hero-image figcaption,
 .proposal-side-photo figcaption {
-  padding-top: 13px;
+  padding-top: 12px;
   color: var(--muted);
-  font-size: 0.86rem;
-  line-height: 1.8;
+  font-size: 0.83rem;
+  line-height: 1.75;
 }
 
 .proposal-summary {
@@ -2303,17 +2310,19 @@ p {
   }
 
   .proposal-hero {
-    grid-template-columns: 1.1fr 0.72fr;
+    grid-template-columns: 1.08fr 0.5fr;
     min-height: 0;
-    gap: 0.32in;
-    padding-bottom: 0.35in;
+    gap: 0.3in;
+    padding-bottom: 0.28in;
     page-break-after: avoid;
   }
 
   .proposal-hero-copy h1 {
-    margin: 0.08in 0 0.16in;
-    font-size: 28pt;
-    line-height: 1.25;
+    max-width: 4.7in;
+    margin: 0.06in 0 0.14in;
+    font-size: 23pt;
+    line-height: 1.28;
+    letter-spacing: 0.03em;
   }
 
   .proposal-hero-copy > p:not(.overline),
@@ -2324,7 +2333,12 @@ p {
   }
 
   .proposal-hero-image img {
-    aspect-ratio: 4 / 3.15;
+    aspect-ratio: 4 / 3.05;
+  }
+
+  .proposal-hero-image figcaption {
+    font-size: 7.8pt;
+    line-height: 1.55;
   }
 
   .proposal-summary {
