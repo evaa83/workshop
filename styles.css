@@ -609,6 +609,106 @@ p {
   content: "";
 }
 
+.profile-proof-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.profile-proof-card,
+.profile-proof-photos {
+  padding: clamp(24px, 3vw, 34px);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.profile-proof-wide {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 40px);
+  grid-row: span 2;
+  align-items: start;
+}
+
+.profile-proof-card h3 {
+  margin-bottom: 14px;
+  font-family: var(--serif);
+  font-size: clamp(1.26rem, 2vw, 1.58rem);
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+.profile-proof-card p:not(.profile-label) {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.9;
+}
+
+.profile-proof-card ul {
+  display: grid;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.profile-proof-card li {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.profile-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.profile-cert-grid figure,
+.profile-proof-photos figure {
+  margin: 0;
+}
+
+.profile-cert-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(25, 49, 45, 0.12);
+  background: #fff;
+  object-fit: contain;
+}
+
+.profile-cert-grid figcaption,
+.profile-proof-photos figcaption {
+  padding-top: 10px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.profile-proof-photos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 14px;
+}
+
+.profile-proof-photos img {
+  width: 100%;
+  aspect-ratio: 4 / 3.1;
+  object-fit: cover;
+}
+
+.profile-proof-photos figure:nth-child(2) img {
+  object-position: 18% center;
+}
+
+.profile-proof-photos figure:nth-child(3) img {
+  object-position: 28% center;
+}
+
 .media-moments {
   border-top: 1px solid var(--line);
 }
@@ -2216,6 +2316,8 @@ p {
   .metrics,
   .work-grid,
   .profile-grid,
+  .profile-proof-grid,
+  .profile-proof-wide,
   .credential-showcase,
   .parent-themes {
     grid-template-columns: 1fr;
@@ -2259,6 +2361,15 @@ p {
   .credential-list li {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .profile-cert-grid,
+  .profile-proof-photos {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-proof-photos img {
+    aspect-ratio: 4 / 2.85;
   }
 
   .parents-gallery img {
