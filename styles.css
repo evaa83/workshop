@@ -1744,13 +1744,51 @@ p {
   line-height: 1.85;
 }
 
-.proposal-podcast-brief a {
-  display: inline-flex;
+.proposal-podcast-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
   margin-top: 18px;
+}
+
+.proposal-podcast-actions a {
+  display: inline-flex;
   color: var(--forest);
   font-weight: 700;
   text-decoration: none;
   border-bottom: 1px solid currentColor;
+}
+
+.proposal-podcast-photos {
+  display: grid;
+  grid-template-columns: 1.1fr repeat(2, 0.82fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.proposal-podcast-photos figure {
+  margin: 0;
+}
+
+.proposal-podcast-photos img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.proposal-podcast-photos figure:first-child img {
+  object-position: center;
+}
+
+.proposal-podcast-photos figure:nth-child(2) img {
+  object-position: center 38%;
+}
+
+.proposal-podcast-photos figcaption {
+  padding-top: 8px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.55;
 }
 
 .speaker-profile-grid {
@@ -2690,6 +2728,26 @@ p {
   .proposal-credentials li {
     font-size: 8.3pt;
     line-height: 1.65;
+  }
+
+  .proposal-podcast-brief {
+    margin-top: 0.18in;
+    padding: 0.16in;
+  }
+
+  .proposal-podcast-actions {
+    display: none !important;
+  }
+
+  .proposal-podcast-photos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.08in;
+    margin-top: 0.14in;
+  }
+
+  .proposal-podcast-photos figcaption {
+    font-size: 7pt;
+    line-height: 1.35;
   }
 
   .value-grid {
