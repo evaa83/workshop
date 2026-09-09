@@ -1705,6 +1705,7 @@ p {
 .proposal-intro,
 .speaker-profile,
 .proposal-value,
+.proposal-proof,
 .credentials-strip {
   border-top: 1px solid var(--line);
 }
@@ -1735,30 +1736,39 @@ p {
   object-position: center;
 }
 
-.proposal-theme-list,
-.proposal-audience-grid {
+.proposal-theme-list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 14px;
 }
 
 .proposal-audience-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid;
+  gap: clamp(18px, 2.8vw, 28px);
+}
+
+.audience-page {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(20px, 3vw, 34px);
+  min-height: clamp(390px, 45vw, 520px);
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--cream) 72%, var(--paper));
   align-items: stretch;
 }
 
-.audience-column {
+.audience-topic-list {
   display: grid;
-  grid-template-rows: auto repeat(3, 1fr);
   gap: 12px;
-  padding: clamp(18px, 2.4vw, 24px);
-  border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--cream) 72%, var(--paper));
 }
 
 .audience-heading {
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: clamp(0px, 2vw, 20px);
+  border-right: 1px solid var(--line);
 }
 
 .audience-heading p {
@@ -1770,10 +1780,18 @@ p {
 }
 
 .audience-heading h3 {
+  margin-bottom: 18px;
   font-family: var(--serif);
-  font-size: clamp(1.3rem, 2vw, 1.75rem);
+  font-size: clamp(1.58rem, 2.4vw, 2.25rem);
   line-height: 1.48;
   letter-spacing: 0.05em;
+}
+
+.audience-heading span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.9;
 }
 
 .proposal-theme {
@@ -1784,12 +1802,12 @@ p {
   background: var(--cream);
 }
 
-.audience-column .proposal-theme {
+.audience-page .proposal-theme {
   display: flex;
   flex-direction: column;
   grid-column: auto;
   min-height: 0;
-  padding: clamp(18px, 2.2vw, 24px);
+  padding: clamp(18px, 2.2vw, 26px);
   background: var(--paper);
 }
 
@@ -2070,8 +2088,15 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .audience-column {
-    grid-template-rows: auto;
+  .audience-page {
+    grid-template-columns: 1fr;
+  }
+
+  .audience-heading {
+    padding-right: 0;
+    padding-bottom: 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .work-card,
@@ -2177,7 +2202,7 @@ p {
 
   .terra-visuals,
   .terra-programs,
-  .proposal-audience-grid,
+  .audience-page,
   .proposal-summary,
   .proposal-theme-list,
   .value-grid,
@@ -2194,8 +2219,15 @@ p {
     min-height: 0;
   }
 
-  .audience-column {
+  .audience-page {
     padding: 18px;
+  }
+
+  .audience-heading {
+    padding-right: 0;
+    padding-bottom: 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .proposal-cert-photos,
@@ -2513,21 +2545,38 @@ p {
     gap: 0.12in;
   }
 
+  .proposal-section:has(.proposal-audience-grid) {
+    page-break-before: always;
+    break-before: page;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+
   .proposal-audience-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.12in;
+    grid-template-columns: 1fr;
+    gap: 0.18in;
     align-items: stretch;
   }
 
-  .audience-column {
-    grid-template-rows: auto repeat(3, 1fr);
-    gap: 0.08in;
-    padding: 0.13in;
+  .audience-page {
+    grid-template-columns: 0.76fr 1.24fr;
+    gap: 0.22in;
+    min-height: 7in;
+    padding: 0.25in;
     page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .audience-page + .audience-page {
+    page-break-before: always;
+    break-before: page;
   }
 
   .audience-heading {
-    padding-bottom: 0.1in;
+    padding-right: 0.17in;
+    padding-bottom: 0;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
   }
 
   .audience-heading p {
@@ -2536,8 +2585,18 @@ p {
   }
 
   .audience-heading h3 {
-    font-size: 12pt;
-    line-height: 1.35;
+    margin-bottom: 0.12in;
+    font-size: 18pt;
+    line-height: 1.34;
+  }
+
+  .audience-heading span {
+    font-size: 9.2pt;
+    line-height: 1.75;
+  }
+
+  .audience-topic-list {
+    gap: 0.1in;
   }
 
   .proposal-theme,
@@ -2548,8 +2607,8 @@ p {
     page-break-inside: avoid;
   }
 
-  .audience-column .proposal-theme {
-    padding: 0.12in;
+  .audience-page .proposal-theme {
+    padding: 0.18in;
   }
 
   .proposal-theme p {
@@ -2565,8 +2624,8 @@ p {
 
   .proposal-theme h4 {
     margin-bottom: 0.07in;
-    font-size: 9.5pt;
-    line-height: 1.42;
+    font-size: 12.8pt;
+    line-height: 1.45;
   }
 
   .proposal-theme span,
