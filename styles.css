@@ -1862,6 +1862,114 @@ p {
   line-height: 1.8;
 }
 
+.proposal-proof-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  gap: 14px;
+}
+
+.proposal-proof-card,
+.proposal-proof-photos {
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--line);
+  background: var(--cream);
+}
+
+.proposal-proof-cert {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.52fr) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 32px);
+  grid-row: span 2;
+  align-items: start;
+}
+
+.proposal-proof-label {
+  margin-bottom: 14px;
+  color: var(--clay);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.proposal-proof-card h3 {
+  margin-bottom: 14px;
+  font-family: var(--serif);
+  font-size: clamp(1.22rem, 1.8vw, 1.52rem);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.proposal-proof-card p:not(.proposal-proof-label) {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.85;
+}
+
+.proposal-proof-resume ul {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.proposal-proof-resume li {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.proposal-cert-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.proposal-cert-photos figure,
+.proposal-proof-photos figure {
+  margin: 0;
+}
+
+.proposal-cert-photos img {
+  width: 100%;
+  aspect-ratio: 4 / 3.05;
+  border: 1px solid rgba(25, 49, 45, 0.12);
+  background: #fff;
+  object-fit: contain;
+}
+
+.proposal-cert-photos figcaption,
+.proposal-proof-photos figcaption {
+  padding-top: 10px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.proposal-proof-photos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 12px;
+}
+
+.proposal-proof-photos img {
+  width: 100%;
+  aspect-ratio: 4 / 3.1;
+  object-fit: cover;
+}
+
+.proposal-proof-photos figure:nth-child(2) img {
+  object-position: 18% center;
+}
+
+.proposal-proof-photos figure:nth-child(3) img {
+  object-position: 28% center;
+}
+
 .proposal-contact {
   padding: clamp(72px, 10vw, 118px) clamp(24px, 6vw, 76px);
   color: var(--cream);
@@ -2073,6 +2181,8 @@ p {
   .proposal-summary,
   .proposal-theme-list,
   .value-grid,
+  .proposal-proof-grid,
+  .proposal-proof-cert,
   .proposal-credentials,
   .site-footer {
     grid-template-columns: 1fr;
@@ -2086,6 +2196,11 @@ p {
 
   .audience-column {
     padding: 18px;
+  }
+
+  .proposal-cert-photos,
+  .proposal-proof-photos {
+    grid-template-columns: 1fr;
   }
 
   .site-footer {
@@ -2476,6 +2591,49 @@ p {
     gap: 0 0.2in;
   }
 
+  .proposal-proof-grid {
+    grid-template-columns: 1fr;
+    gap: 0.12in;
+  }
+
+  .proposal-proof-card,
+  .proposal-proof-photos {
+    padding: 0.16in;
+    page-break-inside: avoid;
+  }
+
+  .proposal-proof-cert {
+    grid-template-columns: 0.52fr 1fr;
+    gap: 0.18in;
+  }
+
+  .proposal-proof-card h3 {
+    margin-bottom: 0.08in;
+    font-size: 11pt;
+    line-height: 1.35;
+  }
+
+  .proposal-proof-card p:not(.proposal-proof-label),
+  .proposal-proof-resume li {
+    font-size: 8pt;
+    line-height: 1.55;
+  }
+
+  .proposal-cert-photos {
+    gap: 0.1in;
+  }
+
+  .proposal-proof-photos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.08in;
+  }
+
+  .proposal-cert-photos figcaption,
+  .proposal-proof-photos figcaption {
+    font-size: 7pt;
+    line-height: 1.35;
+  }
+
   .proposal-contact {
     margin-top: 0.38in;
     padding: 0.35in;
@@ -2483,7 +2641,7 @@ p {
   }
 
   .site-footer {
-    display: grid;
+    display: none !important;
     grid-template-columns: 1fr;
     max-width: none;
     padding: 0.28in 0 0;
